@@ -25,6 +25,7 @@ router.post('/register', async(req, res)=>{
         if(await Barbeiro.findOne({telefone})){
             return res.status(400). send({error: "Este número de telefone já está cadastrado!"});
         }
+         
 
         const barbeiro = await Barbeiro.create(req.body);
         return res.send(barbeiro);
